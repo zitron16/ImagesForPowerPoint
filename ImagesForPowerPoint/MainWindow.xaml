@@ -30,23 +30,25 @@
         <TextBox x:Name="titleWord" Grid.Column="2" Grid.Row="1" Width="200" 
                  Margin="5" />
         <TextBlock Grid.Row="2" Text="Bold Words" Margin="10,5,30,146" Grid.ColumnSpan="2"  />
-        <TextBox x:Name="boldWord" Grid.Column="1" Grid.Row="2" 
-                 Height="150" Margin="10,4,21,13" TextWrapping="Wrap" Grid.ColumnSpan="2"  />
 
 
 
         <Button x:Name="submitButton" Content="Search Google Images" Grid.Column="1" Grid.ColumnSpan="2"
                 Grid.Row="5" Margin="10" Click="SubmitButton_Click" />
 
-        <WebBrowser Name="myweb" Grid.Row="1" Grid.Column="2" Grid.RowSpan="6" Source="https://www.google.com/imghp?hl=" Grid.ColumnSpan="3" Margin="205,18,5,25" />
-        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="10,2,0,0" TextWrapping="Wrap" Text="Right click desired image, save as download.png in Downloads" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Enter Title and Bold Words of Body of PPT slide" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <WebBrowser Name="myweb" Grid.Row="2" Grid.Column="2" Grid.RowSpan="5" Source="https://www.google.com/imghp?hl=" Grid.ColumnSpan="3" Margin="205,26,5,25" />
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="10,2,0,0" TextWrapping="Wrap" Text="Right click desired image, save as download.png in Downloads or right click,copy paste" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Enter Title and Body of PPT slide" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
         <TextBlock HorizontalAlignment="Left" Margin="8,10,0,0" Grid.Row="6" TextWrapping="Wrap" Text="This button takes the title and the bold" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,37,0,0" Grid.Row="6" TextWrapping="Wrap" Text="words in the body to be searched when " VerticalAlignment="Top" Grid.ColumnSpan="3"/>
-        <TextBlock HorizontalAlignment="Left" Margin="0,58,0,0" Grid.Row="6" TextWrapping="Wrap" Text="button is clicked." VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,58,0,0" Grid.Row="6" TextWrapping="Wrap" Text="button is clicked." VerticalAlignment="Top" Grid.ColumnSpan="3" Height="23"/>
         <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="10,4,0,0" TextWrapping="Wrap" Text="Once Search Google Images button is clicked (or feel free to search Google directly)" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="12,21,0,0" Grid.Row="2" TextWrapping="Wrap" Text="of Body" VerticalAlignment="Top" Width="57"/>
         <Button Content="Generate Powerpoint Slide" Grid.Column="4" HorizontalAlignment="Left" Margin="110,129,0,0" Grid.Row="6" VerticalAlignment="Top" Width="221" Grid.RowSpan="2" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" Grid.Row="2" TextWrapping="Wrap" Text="of Body" VerticalAlignment="Top" Width="59"/>
+        <TextBox x:Name="boldWord" Grid.Column="1" HorizontalAlignment="Left" Height="147" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" MaxWidth="222" Width="222" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" Margin="8,86,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Just Copy and Paste planned body to ppt slide" VerticalAlignment="Top" Width="279"/>
+        <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="21" Margin="5,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="For multiple images in a slide just resize download.png image,copy paste next" VerticalAlignment="Top" Width="455" Grid.RowSpan="2"/>
+        <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="19" Margin="5,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="This only works for one slide, copy paste images for others" VerticalAlignment="Top" Width="455"/>
 
     </Grid>
 </Window>

@@ -36,6 +36,7 @@ namespace ImagesForPowerPoint
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             myweb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + " " + boldWord.Text);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,6 +69,8 @@ namespace ImagesForPowerPoint
 
 
         }
+
+     
     }
 
     
