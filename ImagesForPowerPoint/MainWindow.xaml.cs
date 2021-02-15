@@ -46,14 +46,14 @@ namespace ImagesForPowerPoint
                         var textRange = new TextRange(inline.ContentStart, inline.ContentEnd);
                         boldTexts.Add(textRange.Text);
                         //MessageBox.Show(textRange.Text);
-                        mylist += (" " + textRange.Text);
+                        mylist += (textRange.Text + " ");
                         
 
                         
 
 
                     }
-            myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + " " + mylist);
+            myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
 
 
                 }
