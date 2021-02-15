@@ -31,13 +31,35 @@ namespace ImagesForPowerPoint
           
         }
 
-        
+
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-         
-            myWeb.Source = new Uri ("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + " " + boldWord.Text);
+            string mylist = (" ");
+            List<string> boldTexts = new List<string>();
+            foreach (Paragraph p in rchTextbox.Document.Blocks)
+            {
+                foreach (var inline in p.Inlines)
+                {
+                    if (inline.FontWeight == FontWeights.Bold)
+                    {
+                        var textRange = new TextRange(inline.ContentStart, inline.ContentEnd);
+                        boldTexts.Add(textRange.Text);
+                        //MessageBox.Show(textRange.Text);
+                        mylist += (" " + textRange.Text);
+                        
 
+                        
+
+
+                    }
+            myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + " " + mylist);
+
+
+                }
+
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,7 +77,6 @@ namespace ImagesForPowerPoint
             //Add description content to the slide by adding a new TextBox
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
-
             //Gets a picture as stream.
             //Stream pictureStream = File.Open("C:/Users/dell/Downloads/download.png", FileMode.Open);
 
@@ -63,16 +84,18 @@ namespace ImagesForPowerPoint
             //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
-            pptxDoc.Save("Sample.pptx");
+            //pptxDoc.Save("Sample.pptx");
 
             //Close the PowerPoint presentation
-            pptxDoc.Close();
-
-
+            //pptxDoc.Close();
         }
-
-     
     }
 
-    
+        
 }
+
+
+       
+    
+
+    
