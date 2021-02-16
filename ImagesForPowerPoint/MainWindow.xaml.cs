@@ -23,16 +23,16 @@ namespace ImagesForPowerPoint
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
 
         public MainWindow()
         {
             InitializeComponent();
 
-          
+
         }
 
-        
+
 
 
 
@@ -50,23 +50,24 @@ namespace ImagesForPowerPoint
                         boldTexts.Add(textRange.Text);
                         //MessageBox.Show(textRange.Text);
                         mylist += (textRange.Text + " ");
-                        
-           
+
+
 
 
                     }
-            myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
-            
+                    myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
+                    
+
 
 
 
                 }
 
             }
-            
+
         }
 
-        
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -84,7 +85,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image1.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -112,7 +113,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image2.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -140,7 +141,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image3.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -168,7 +169,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ ImagesForPowerPoint / ImagesForPowerPoint / Images / download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ ImagesForPowerPoint / ImagesForPowerPoint / Images / image4.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -196,7 +197,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image5.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -224,7 +225,7 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image6.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -237,11 +238,7 @@ namespace ImagesForPowerPoint
         }
     }
 
-        
+
 }
 
 
-       
-    
-
-    

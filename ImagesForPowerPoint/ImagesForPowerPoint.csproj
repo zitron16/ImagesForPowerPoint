@@ -64,6 +64,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -135,7 +136,25 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\image1.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\image6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
