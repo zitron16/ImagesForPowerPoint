@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Syncfusion.Presentation;
 using System.IO;
+using System.Net;
 
 namespace ImagesForPowerPoint
 {
@@ -30,6 +31,8 @@ namespace ImagesForPowerPoint
 
           
         }
+
+        
 
 
 
@@ -48,12 +51,13 @@ namespace ImagesForPowerPoint
                         //MessageBox.Show(textRange.Text);
                         mylist += (textRange.Text + " ");
                         
-
-                        
+           
 
 
                     }
             myWeb.Source = new Uri("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
+            
+
 
 
                 }
@@ -62,7 +66,9 @@ namespace ImagesForPowerPoint
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Create a new instance of PowerPoint Presentation file
             IPresentation pptxDoc = Presentation.Create();
@@ -78,16 +84,156 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/Downloads/download.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
 
             //Close the PowerPoint presentation
-            //pptxDoc.Close();
+            //pptxDoc.Close(); 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //Create a new instance of PowerPoint Presentation file
+            IPresentation pptxDoc = Presentation.Create();
+
+            //Add a new slide to file and apply background color
+            ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+            //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+            IShape titleShape = slide.Shapes[0] as IShape;
+            titleShape.TextBody.AddParagraph(titleWord.Text).HorizontalAlignment = HorizontalAlignmentType.Center;
+
+            //Add description content to the slide by adding a new TextBox
+            IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+            descriptionShape.TextBody.Text = bodyPPT.Text;
+            //Gets a picture as stream.
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+
+            //Adds the picture to a slide by specifying its size and position.
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+
+            //Save the PowerPoint Presentation 
+            //pptxDoc.Save("Sample.pptx");
+
+            //Close the PowerPoint presentation
+            //pptxDoc.Close(); 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //Create a new instance of PowerPoint Presentation file
+            IPresentation pptxDoc = Presentation.Create();
+
+            //Add a new slide to file and apply background color
+            ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+            //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+            IShape titleShape = slide.Shapes[0] as IShape;
+            titleShape.TextBody.AddParagraph(titleWord.Text).HorizontalAlignment = HorizontalAlignmentType.Center;
+
+            //Add description content to the slide by adding a new TextBox
+            IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+            descriptionShape.TextBody.Text = bodyPPT.Text;
+            //Gets a picture as stream.
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+
+            //Adds the picture to a slide by specifying its size and position.
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+
+            //Save the PowerPoint Presentation 
+            //pptxDoc.Save("Sample.pptx");
+
+            //Close the PowerPoint presentation
+            //pptxDoc.Close(); 
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            //Create a new instance of PowerPoint Presentation file
+            IPresentation pptxDoc = Presentation.Create();
+
+            //Add a new slide to file and apply background color
+            ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+            //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+            IShape titleShape = slide.Shapes[0] as IShape;
+            titleShape.TextBody.AddParagraph(titleWord.Text).HorizontalAlignment = HorizontalAlignmentType.Center;
+
+            //Add description content to the slide by adding a new TextBox
+            IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+            descriptionShape.TextBody.Text = bodyPPT.Text;
+            //Gets a picture as stream.
+            Stream pictureStream = File.Open("C:/ ImagesForPowerPoint / ImagesForPowerPoint / Images / download.png", FileMode.Open);
+
+            //Adds the picture to a slide by specifying its size and position.
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+
+            //Save the PowerPoint Presentation 
+            //pptxDoc.Save("Sample.pptx");
+
+            //Close the PowerPoint presentation
+            //pptxDoc.Close(); 
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            //Create a new instance of PowerPoint Presentation file
+            IPresentation pptxDoc = Presentation.Create();
+
+            //Add a new slide to file and apply background color
+            ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+            //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+            IShape titleShape = slide.Shapes[0] as IShape;
+            titleShape.TextBody.AddParagraph(titleWord.Text).HorizontalAlignment = HorizontalAlignmentType.Center;
+
+            //Add description content to the slide by adding a new TextBox
+            IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+            descriptionShape.TextBody.Text = bodyPPT.Text;
+            //Gets a picture as stream.
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+
+            //Adds the picture to a slide by specifying its size and position.
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+
+            //Save the PowerPoint Presentation 
+            //pptxDoc.Save("Sample.pptx");
+
+            //Close the PowerPoint presentation
+            //pptxDoc.Close(); 
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            //Create a new instance of PowerPoint Presentation file
+            IPresentation pptxDoc = Presentation.Create();
+
+            //Add a new slide to file and apply background color
+            ISlide slide = pptxDoc.Slides.Add(SlideLayoutType.TitleOnly);
+
+            //Add title content to the slide by accessing the title placeholder of the TitleOnly layout-slide
+            IShape titleShape = slide.Shapes[0] as IShape;
+            titleShape.TextBody.AddParagraph(titleWord.Text).HorizontalAlignment = HorizontalAlignmentType.Center;
+
+            //Add description content to the slide by adding a new TextBox
+            IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
+            descriptionShape.TextBody.Text = bodyPPT.Text;
+            //Gets a picture as stream.
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/download.png", FileMode.Open);
+
+            //Adds the picture to a slide by specifying its size and position.
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+
+            //Save the PowerPoint Presentation 
+            //pptxDoc.Save("Sample.pptx");
+
+            //Close the PowerPoint presentation
+            //pptxDoc.Close(); 
         }
     }
 
