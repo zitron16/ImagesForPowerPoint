@@ -135,11 +135,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\image1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\download.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\image2.png" />
@@ -149,8 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\image4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\image5.png" />
   </ItemGroup>
   <ItemGroup>
