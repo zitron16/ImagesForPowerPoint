@@ -22,7 +22,7 @@ namespace ImagesForPowerPoint
         {
             InitializeComponent();
 
-           
+
 
         }
 
@@ -55,6 +55,7 @@ namespace ImagesForPowerPoint
                     WebClient googleImages = new WebClient();
                     //This regex searches for image urls in the html from google
                     Regex googleRegex = new Regex(@"src=""https://[^""]*""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                    
                     //get google html for image search
                     string html = googleImages.DownloadString("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
                     MatchCollection googleMatches = googleRegex.Matches(html);
@@ -67,17 +68,19 @@ namespace ImagesForPowerPoint
                     }
                     int iterator;
                     string[] imgInfo = urls.Split(' ');
-                    
+
+
                     foreach (string info in imgInfo) //(int x = 0; x < urls.Count; x++)
                     {
                         iterator = 1;
-                        //Console.WriteLine(x);
-                        //Console.WriteLine(x.Substring(5, x.Length - 6));
+                        //Console.WriteLine(info);
+                        //Console.WriteLine(info.Substring(0, info.Length));
 
                         //create the image and add it to the listbox
                         Image googleImage = new Image();
                         googleImage.Name = "image" + iterator;
-                        //googleImage.Source = new BitmapImage(new Uri(info.Substring(0, info.Length)));
+                        //this.RegisterName(googleImage.Name, googleImage);
+                        //googleImage.Source = new BitmapImage(new Uri(info));
                         BitmapImage bi3 = new BitmapImage();
                         bi3.BeginInit();
                         bi3.UriSource = new Uri(info, UriKind.Relative);
@@ -87,6 +90,9 @@ namespace ImagesForPowerPoint
                         //googleImage.Name = Path.Combine(saveDirectory, googleImage.Name);
 
 
+
+
+
                         //increment iterator
                         if (iterator < 7)
                         {
@@ -94,10 +100,18 @@ namespace ImagesForPowerPoint
                         }
 
 
+                        Button button = sender as Button;
+                        button.Content = new Image
+                        {
+                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image1.png")),
+                            VerticalAlignment = VerticalAlignment.Center,
+
+                            Height = 256,
+                            Width = 256
+                        };
+                        
 
 
-                        
-                        
                     }
 
 
@@ -112,6 +126,9 @@ namespace ImagesForPowerPoint
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
+
+
             //Create a new instance of PowerPoint Presentation file
             IPresentation pptxDoc = Presentation.Create();
 
