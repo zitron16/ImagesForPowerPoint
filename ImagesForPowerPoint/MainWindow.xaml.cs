@@ -8,6 +8,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using System.Linq;
+using System.Collections;
+
 
 namespace ImagesForPowerPoint
 {
@@ -16,6 +19,7 @@ namespace ImagesForPowerPoint
     /// </summary>
     public partial class MainWindow : Window
     {
+
 
 
         public MainWindow()
@@ -33,6 +37,8 @@ namespace ImagesForPowerPoint
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             string mylist = (" ");
+            List<string> uriResult = new List<string>();
+            int iterator;
             List<string> boldTexts = new List<string>();
             foreach (Paragraph p in rchTextbox.Document.Blocks)
             {
@@ -55,8 +61,8 @@ namespace ImagesForPowerPoint
                     //create web client
                     WebClient googleImages = new WebClient();
                     //This regex searches for image urls in the html from google
-                    Regex googleRegex = new Regex(@"src=""https://[^""]*""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-                    
+                    Regex googleRegex = new Regex(@"""https://[^""]*""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
                     //get google html for image search
                     string html = googleImages.DownloadString("https://www.google.com/search?tbm=isch&q=" + titleWord.Text + mylist);
                     MatchCollection googleMatches = googleRegex.Matches(html);
@@ -67,84 +73,95 @@ namespace ImagesForPowerPoint
                         //add the match to the arraylist
                         urls += (m.Value + " ");
                     }
-                    int iterator;
+
                     string[] imgInfo = urls.Split(' ');
 
-
-                    foreach (string info in imgInfo) //(int x = 0; x < urls.Count; x++)
+                    foreach (string info in imgInfo.Where((info => !string.IsNullOrEmpty(info)))) //(int x = 0; x < urls.Count; x++)
                     {
-                        iterator = 1;
+                        //iterator = 1;
                         //Console.WriteLine(info);
                         //Console.WriteLine(info.Substring(0, info.Length));
 
                         //create the image and add it to the listbox
-                        Image googleImage = new Image();
-                        googleImage.Name = "image";
-                        //this.RegisterName(googleImage.Name, googleImage);
-                        //googleImage.Source = new BitmapImage(new Uri(info.Substring(0,info.Length)));
-                        //BitmapImage bi3 = new BitmapImage();
-                        //bi3.BeginInit();
-                        //bi3.UriSource = new Uri(info, UriKind.Relative);
-                        //bi3.EndInit();
-                        //googleImage.Source = bi3;
-                        string saveDirectory = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
-                        //googleImage.Name = Path.Combine(saveDirectory, );
-
-
-                       
-                        button1.Content = new Image
-
+                        foreach (string s in info.Split(' '))
                         {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator + ".png"))
-                            ////VerticalAlignment = VerticalAlignment.Center,
-                            
-                            //Height = 256,
-                            //Width = 500
-                        };
-
-                        iterator++;
-                    
-                        button2.Content = new Image
-                        {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator+".png"))
-                        };
-
-                        iterator++;
-
-                        button3.Content = new Image
-                        {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator + ".png"))
-                        };
-
-                        iterator++;
-
-                        button4.Content = new Image
-                        {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator + ".png"))
-                        };
-
-                        iterator++;
-
-                        button5.Content = new Image
-                        {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator + ".png"))
-                        };
-
-                        iterator++;
-
-                        button6.Content = new Image
-                        {
-                            Source = new BitmapImage(new Uri("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator + ".png"))
-                        };
-
-
-
-
-
-
-
-
+                            if (!String.IsNullOrEmpty(s))
+                                uriResult.Add(s);
+                        }
                     }
+                    iterator = 1;
+                    string bmp = uriResult.ElementAt(iterator);
+                    Image googleImage = new Image();
+                    googleImage.Name = "image";
+                    ////this.RegisterName(googleImage.Name, googleImage);
+                    googleImage.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length-5)));
+
+                    //BitmapImage bi3 = new BitmapImage ;
+                    //bi3.BeginInit();
+                    //bi3.UriSource = new Uri(info, UriKind.Relative);
+                    //bi3.EndInit();
+                    //googleImage = BitmapImage (bi3);
+                    //string saveDirectory = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+                    //googleImage = Path.Combine(saveDirectory, googleImage.Name + iterator + ".png");
+                    //googleImage.Save("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator, System.Drawing.Imaging.ImageFormat.Png);
+                    if (iterator < 7)
+                    {
+                        iterator++;
+                    };
+
+
+                    string bnmp1 = uriResult.ElementAt(1);
+            button1.Content = new Image
+
+            {
+                Source = new BitmapImage(new Uri(bnmp1.Substring(1, bnmp1.Length - 5)))
+
+                    //Source = new BitmapImage(new Uri(info, UriKind.Relative));
+
+
+            };
+
+                    //iterator++;
+                    string bnmp2 = uriResult.ElementAt(2);        
+            button2.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(bnmp2.Substring(1,bnmp2.Length-5)))
+            };
+
+                    //iterator++;
+                    string bnmp3 = uriResult.ElementAt(3);
+            button3.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(bnmp3.Substring(1, bnmp3.Length - 5)))
+            };
+
+                    //iterator++;
+                    string bnmp4 = uriResult.ElementAt(4);
+            button4.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(bnmp4.Substring(1, bnmp4.Length - 5)))
+            };        //iterator++;
+
+
+                    string bnmp5 = uriResult.ElementAt(5);
+            button5.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(bnmp5.Substring(1, bnmp5.Length - 5)))
+            };
+
+                    //iterator++;
+                    string bnmp6 = uriResult.ElementAt(6);
+            button6.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(bnmp6.Substring(1, bnmp6.Length - 5)))
+            };
+
+
+
+
+
+
+
 
                 }
 
@@ -152,6 +169,7 @@ namespace ImagesForPowerPoint
 
         }
 
+    
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -174,7 +192,8 @@ namespace ImagesForPowerPoint
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
         
-            Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref1.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image1.png", FileMode.Open);
+            
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
@@ -202,10 +221,10 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref2.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image2.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -230,10 +249,10 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref3.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image3.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -258,10 +277,10 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref4.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image4.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -286,10 +305,10 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref5.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image5.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -314,10 +333,10 @@ namespace ImagesForPowerPoint
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
-            //Stream pictureStream = File.Open("C:/Users/dell/source/SEH/ref6.png", FileMode.Open);
+            Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image6.png", FileMode.Open);
 
             //Adds the picture to a slide by specifying its size and position.
-            //slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -325,6 +344,8 @@ namespace ImagesForPowerPoint
             //Close the PowerPoint presentation
             //pptxDoc.Close(); 
         }
+
+        
     }
 
 
