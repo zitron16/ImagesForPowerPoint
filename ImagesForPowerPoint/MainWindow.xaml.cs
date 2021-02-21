@@ -96,14 +96,14 @@ namespace ImagesForPowerPoint
                     ////this.RegisterName(googleImage.Name, googleImage);
                     googleImage.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length-5)));
 
-                    //BitmapImage bi3 = new BitmapImage ;
+                    //bi3 = new System.Drawing.Image()
                     //bi3.BeginInit();
-                    //bi3.UriSource = new Uri(info, UriKind.Relative);
+                    //bi3.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length - 5)));
                     //bi3.EndInit();
                     //googleImage = BitmapImage (bi3);
                     //string saveDirectory = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
                     //googleImage = Path.Combine(saveDirectory, googleImage.Name + iterator + ".png");
-                    //googleImage.Save("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator, System.Drawing.Imaging.ImageFormat.Png);
+                    //bi3.Save("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator, System.Drawing.ImageFormat.png);
                     if (iterator < 7)
                     {
                         iterator++;
@@ -197,6 +197,7 @@ namespace ImagesForPowerPoint
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            pictureStream.Close();
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -225,6 +226,7 @@ namespace ImagesForPowerPoint
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            pictureStream.Close();
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -253,6 +255,8 @@ namespace ImagesForPowerPoint
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            pictureStream.Close();
+
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -278,9 +282,10 @@ namespace ImagesForPowerPoint
             descriptionShape.TextBody.Text = bodyPPT.Text;
             //Gets a picture as stream.
             Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image4.png", FileMode.Open);
-
+            
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            pictureStream.Close();
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -309,6 +314,7 @@ namespace ImagesForPowerPoint
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
+            pictureStream.Close();
 
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
@@ -337,7 +343,7 @@ namespace ImagesForPowerPoint
 
             //Adds the picture to a slide by specifying its size and position.
             slide.Shapes.AddPicture(pictureStream, 499.79, 238.59, 364.54, 192.16);
-
+            pictureStream.Close();
             //Save the PowerPoint Presentation 
             //pptxDoc.Save("Sample.pptx");
 
