@@ -76,13 +76,10 @@ namespace ImagesForPowerPoint
 
                     string[] imgInfo = urls.Split(' ');
 
-                    foreach (string info in imgInfo.Where((info => !string.IsNullOrEmpty(info)))) //(int x = 0; x < urls.Count; x++)
+                    foreach (string info in imgInfo.Where((info => !string.IsNullOrEmpty(info))))
                     {
-                        //iterator = 1;
-                        //Console.WriteLine(info);
-                        //Console.WriteLine(info.Substring(0, info.Length));
-
-                        //create the image and add it to the listbox
+                        
+                        //create the image and add it to the List
                         foreach (string s in info.Split(' '))
                         {
                             if (!String.IsNullOrEmpty(s))
@@ -92,8 +89,7 @@ namespace ImagesForPowerPoint
                     iterator = 1;
                     string bmp = uriResult.ElementAt(iterator);
                     Image googleImage = new Image();
-                    googleImage.Name = "image";
-                    ////this.RegisterName(googleImage.Name, googleImage);
+                    googleImage.Name = "image";                   
                     googleImage.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length-5)));
 
                     //bi3 = new System.Drawing.Image()
@@ -114,33 +110,30 @@ namespace ImagesForPowerPoint
             button1.Content = new Image
 
             {
-                Source = new BitmapImage(new Uri(bnmp1.Substring(1, bnmp1.Length - 5)))
-
-                    //Source = new BitmapImage(new Uri(info, UriKind.Relative));
+                Source = new BitmapImage(new Uri(bnmp1.Substring(1, bnmp1.Length - 5)))                  
 
 
             };
 
-                    //iterator++;
                     string bnmp2 = uriResult.ElementAt(2);        
             button2.Content = new Image
             {
                 Source = new BitmapImage(new Uri(bnmp2.Substring(1,bnmp2.Length-5)))
             };
 
-                    //iterator++;
+                    
                     string bnmp3 = uriResult.ElementAt(3);
             button3.Content = new Image
             {
                 Source = new BitmapImage(new Uri(bnmp3.Substring(1, bnmp3.Length - 5)))
             };
 
-                    //iterator++;
+                    
                     string bnmp4 = uriResult.ElementAt(4);
             button4.Content = new Image
             {
                 Source = new BitmapImage(new Uri(bnmp4.Substring(1, bnmp4.Length - 5)))
-            };        //iterator++;
+            };        
 
 
                     string bnmp5 = uriResult.ElementAt(5);
@@ -149,7 +142,7 @@ namespace ImagesForPowerPoint
                 Source = new BitmapImage(new Uri(bnmp5.Substring(1, bnmp5.Length - 5)))
             };
 
-                    //iterator++;
+                    
                     string bnmp6 = uriResult.ElementAt(6);
             button6.Content = new Image
             {
