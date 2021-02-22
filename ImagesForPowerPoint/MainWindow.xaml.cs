@@ -10,7 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Linq;
 using System.Collections;
-
+using System.Drawing;
+using Image = System.Windows.Controls.Image;
+using System.Drawing.Imaging;
 
 namespace ImagesForPowerPoint
 {
@@ -19,13 +21,13 @@ namespace ImagesForPowerPoint
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
+        
 
         public MainWindow()
         {
             InitializeComponent();
 
+            
 
 
         }
@@ -92,14 +94,8 @@ namespace ImagesForPowerPoint
                     googleImage.Name = "image";                   
                     googleImage.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length-5)));
 
-                    //bi3 = new System.Drawing.Image()
-                    //bi3.BeginInit();
-                    //bi3.Source = new BitmapImage(new Uri(bmp.Substring(1, bmp.Length - 5)));
-                    //bi3.EndInit();
-                    //googleImage = BitmapImage (bi3);
-                    //string saveDirectory = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
-                    //googleImage = Path.Combine(saveDirectory, googleImage.Name + iterator + ".png");
-                    //bi3.Save("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/" + googleImage.Name + iterator, System.Drawing.ImageFormat.png);
+
+                    
                     if (iterator < 7)
                     {
                         iterator++;
@@ -107,13 +103,13 @@ namespace ImagesForPowerPoint
 
 
                     string bnmp1 = uriResult.ElementAt(1);
-            button1.Content = new Image
+                button1.Content = new Image
 
-            {
-                Source = new BitmapImage(new Uri(bnmp1.Substring(1, bnmp1.Length - 5)))                  
+                {
+                    Source = new BitmapImage(new Uri(bnmp1.Substring(1, bnmp1.Length - 5)))                
 
 
-            };
+                };
 
                     string bnmp2 = uriResult.ElementAt(2);        
             button2.Content = new Image
@@ -149,23 +145,48 @@ namespace ImagesForPowerPoint
                 Source = new BitmapImage(new Uri(bnmp6.Substring(1, bnmp6.Length - 5)))
             };
 
+            System.Drawing.Image image = DownloadImageFromUrl(bnmp1.Substring(1,bnmp1.Length-5));
+            string rootPath = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName = System.IO.Path.Combine(rootPath, "image1.png");
+            image.Save(fileName);
 
+            System.Drawing.Image image2 = DownloadImageFromUrl(bnmp2.Substring(1, bnmp2.Length - 5));
+            string rootPath2 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName2 = System.IO.Path.Combine(rootPath2, "image2.png");
+            image2.Save(fileName2);
 
+            System.Drawing.Image image3 = DownloadImageFromUrl(bnmp3.Substring(1, bnmp3.Length - 5));
+            string rootPath3 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName3 = System.IO.Path.Combine(rootPath3, "image3.png");
+            image3.Save(fileName3);
 
+            System.Drawing.Image image4 = DownloadImageFromUrl(bnmp4.Substring(1, bnmp4.Length - 5));
+            string rootPath4 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName4 = System.IO.Path.Combine(rootPath4, "image4.png");
+            image4.Save(fileName4);
 
+            System.Drawing.Image image5 = DownloadImageFromUrl(bnmp5.Substring(1, bnmp5.Length - 5));
+            string rootPath5 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName5 = System.IO.Path.Combine(rootPath5, "image5.png");
+            image5.Save(fileName5);
+
+            System.Drawing.Image image6 = DownloadImageFromUrl(bnmp6.Substring(1, bnmp6.Length - 5));
+            string rootPath6 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
+            string fileName6 = System.IO.Path.Combine(rootPath6, "image6.png");
+            image6.Save(fileName6);
 
 
 
                 }
 
             }
-
+            
+            
         }
+        
 
-    
 
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+            private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             
 
@@ -183,8 +204,8 @@ namespace ImagesForPowerPoint
             //Add description content to the slide by adding a new TextBox
             IShape descriptionShape = slide.AddTextBox(53.22, 141.73, 874.19, 77.70);
             descriptionShape.TextBody.Text = bodyPPT.Text;
-            //Gets a picture as stream.
-        
+            //Gets a picture as stream.         
+
             Stream pictureStream = File.Open("C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/image1.png", FileMode.Open);
             
 
@@ -343,11 +364,51 @@ namespace ImagesForPowerPoint
             //Close the PowerPoint presentation
             //pptxDoc.Close(); 
         }
+        public System.Drawing.Image DownloadImageFromUrl(string imageUrl)
+        {
+            
+            System.Drawing.Image image = null;
+            
+
+            try
+            {
+                System.Net.HttpWebRequest webRequest = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(imageUrl);
+                webRequest.AllowWriteStreamBuffering = true;
+                webRequest.Timeout = 30000;
+
+                System.Net.WebResponse webResponse = webRequest.GetResponse();
+
+                System.IO.Stream stream = webResponse.GetResponseStream();
+
+                image = System.Drawing.Image.FromStream(stream);
+                
+
+                webResponse.Close();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return image;
+            
+            
+            
+
+            
+        }
 
         
+
+
+
+
+
+        
+
     }
 
 
-}
+    }
 
 
