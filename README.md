@@ -28,4 +28,4 @@ image suggestion area, should allow multiple image selection (output)
 Final solution should use title, text areas, and using selected images to build power point slide.
 
 
-# I think it's done, be sure to have the path on C:// and have Google Chrome as the browser for Visual Studio -- tools, options, browser, source paste path of Google Chrome in your computer
+# I think it's done, be sure to have the path of the file on C:// and have Google Chrome as the browser for Visual Studio -- tools, options, browser, source paste path of Google Chrome in your computer
