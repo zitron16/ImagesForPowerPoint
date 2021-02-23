@@ -149,32 +149,37 @@ namespace ImagesForPowerPoint
             string rootPath = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName = System.IO.Path.Combine(rootPath, "image1.png");
             image.Save(fileName);
+            image.Dispose();
 
             System.Drawing.Image image2 = DownloadImageFromUrl(bnmp2.Substring(1, bnmp2.Length - 5));
             string rootPath2 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName2 = System.IO.Path.Combine(rootPath2, "image2.png");
             image2.Save(fileName2);
+            image2.Dispose();
 
             System.Drawing.Image image3 = DownloadImageFromUrl(bnmp3.Substring(1, bnmp3.Length - 5));
             string rootPath3 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName3 = System.IO.Path.Combine(rootPath3, "image3.png");
             image3.Save(fileName3);
+            image3.Dispose();
 
             System.Drawing.Image image4 = DownloadImageFromUrl(bnmp4.Substring(1, bnmp4.Length - 5));
             string rootPath4 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName4 = System.IO.Path.Combine(rootPath4, "image4.png");
             image4.Save(fileName4);
-
+            image4.Dispose();
+            
             System.Drawing.Image image5 = DownloadImageFromUrl(bnmp5.Substring(1, bnmp5.Length - 5));
             string rootPath5 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName5 = System.IO.Path.Combine(rootPath5, "image5.png");
             image5.Save(fileName5);
-
+            image5.Dispose();
+            
             System.Drawing.Image image6 = DownloadImageFromUrl(bnmp6.Substring(1, bnmp6.Length - 5));
             string rootPath6 = @"C:/ImagesForPowerPoint/ImagesForPowerPoint/Images/";
             string fileName6 = System.IO.Path.Combine(rootPath6, "image6.png");
             image6.Save(fileName6);
-
+            image6.Dispose();
 
 
                 }
